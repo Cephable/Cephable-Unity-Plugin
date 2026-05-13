@@ -71,7 +71,7 @@ public class MacroModel
 [System.Serializable]
 public class MacroEvent
 {
-    public string eventType;
+    public MacroEventType eventType;
     public List<string> keys;
     public int? holdTimeMilliseconds;
     public string typedPhrase;
@@ -83,8 +83,48 @@ public class MacroEvent
     public int? joystickRightMoveX;
     public int? joystickRightMoveY;
     public string outputSpeech;
+    // custom device actions
 
-    // TODO: update with custom controls
+    /// <summary>
+    /// The ID of the custom action within the provided device type
+    /// </summary>
+    public string deviceTypeCustomActionId;
+
+    /// <summary>
+    /// The device type ID that indicates this macro event should only be run on a specific device type.
+    /// Combine this with the <see cref="deviceTypeCustomActionId"/> for a specific action of this device type
+    /// </summary>
+    public string deviceTypeId;
+
+    /// <summary>
+    /// Used with prefix string content to allow for open ended commands and custom execution
+    /// </summary>
+    public string additionalInputContent;
+
+    /// <summary>
+    /// Used for device type custom actions to indicate it should toggle the state off or on based on the state being held on the device.
+    /// </summary>
+    public bool isCustomToggle;
+
+    /// <summary>
+    /// Used for a device type custom action to indicate that it should release the action if it is held or latched
+    /// </summary>
+    public bool isCustomRelease;
+}
+
+[System.Serializable]
+public enum MacroEventType
+{
+    KeyPress,
+    Pause,
+    Type,
+    MouseMove,
+    JoysticksMove,
+    PlayAudio,
+    KeyRelease,
+    StopOutputs,
+    KeyToggle,
+    DeviceTypeCustomAction
 }
 
 [System.Serializable]
