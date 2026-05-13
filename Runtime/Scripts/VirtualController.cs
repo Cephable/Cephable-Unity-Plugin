@@ -11,13 +11,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using Microsoft.AspNetCore.SignalR.Client;
-using Unity.FPS.Gameplay;
 
 public class VirtualController : MonoBehaviour
 {
-    public PlayerInputHandler inputHandler;
     public string DeviceTypeId;
     public string DefaultDeviceName = "Game Controller";
+    public string CephableApiBaseUrl = "https://services.cephable.com";
     private string userDeviceId;
     private string userDeviceToken;
     private DeviceProfileConfiguration currentProfile;
@@ -51,7 +50,7 @@ public class VirtualController : MonoBehaviour
         try
         {
             var connection = new HubConnectionBuilder()
-            .WithUrl("https://services.cephable.com/device", options =>
+            .WithUrl($"{CephableApiBaseUrl}/device", options =>
             {
                 options.AccessTokenProvider = () => Task.FromResult(userDeviceToken);
                 options.Headers.Add("X-Device-Token", userDeviceToken);
@@ -61,18 +60,18 @@ public class VirtualController : MonoBehaviour
 
             connection.On<string, MacroModel>("DeviceCommand", (command, macro) =>
             {
-                // TODO: simulate based on profile
+                // TODO: run macro events for keyboard, gamepad, and custom device actions
                 output("Received command: " + command);
 
                 // temp
-                if (command == "jump" || command == "hotkey_jump" || command == "eyebrows_raised")
-                {
-                    inputHandler.isJumping = true;
-                }
-                if (command == "fire")
-                {
-                    inputHandler.isShooting = true;
-                }
+                // if (command == "jump" || command == "hotkey_jump" || command == "eyebrows_raised")
+                // {
+                //     inputHandler.isJumping = true;
+                // }
+                // if (command == "fire")
+                // {
+                //     inputHandler.isShooting = true;
+                // }
                 StartCoroutine(ResetKeys());
             });
             connection.On<UserDevice>("DeviceProfileUpdate", (device) =>
@@ -100,8 +99,7 @@ public class VirtualController : MonoBehaviour
     public IEnumerator ResetKeys()
     {
         yield return new WaitForSeconds(0.1f);
-        inputHandler.isJumping = false;
-        inputHandler.isShooting = false;
+        // TODO: release keys/buttons that are held
     }
 
     public IEnumerator CreateVirtualController()
@@ -113,7 +111,7 @@ public class VirtualController : MonoBehaviour
             output("No access token found, please sign in");
             yield break;
         }
-        var www = UnityWebRequest.Post($"https://services.cephable.com/api/Device/userDevices/new/{DeviceTypeId}?name={DefaultDeviceName}", string.Empty);
+        var www = UnityWebRequest.Post($"{CephableApiBaseUrl}/api/Device/userDevices/new/{DeviceTypeId}?name={DefaultDeviceName}", string.Empty);
         // set the Authorization header
         www.SetRequestHeader("Authorization", $"Bearer {accessToken}");
         yield return www.SendWebRequest();
@@ -145,7 +143,7 @@ public class VirtualController : MonoBehaviour
             yield break;
         }
 
-        var www = UnityWebRequest.Post($"https://services.cephable.com/api/Device/userDevices/{userDeviceId}/tokens", string.Empty);
+        var www = UnityWebRequest.Post($"{CephableApiBaseUrl}/api/Device/userDevices/{userDeviceId}/tokens", string.Empty);
         www.SetRequestHeader("Authorization", $"Bearer {accessToken}");
         yield return www.SendWebRequest();
 
