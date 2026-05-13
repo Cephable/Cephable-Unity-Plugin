@@ -1,0 +1,28 @@
+{
+  "name": "com.cephable.unity_controller",
+  "version": "1.0.0",
+  "displayName": "Cephable Adaptive Controls",
+  "description": "Add adaptive controls from Cephable to your games. Let users play with voice controls, face expressions, gestures, custom buttons/switches and more. Cephable enhances the acessibility of your game, helps you create new experiences, and ultimately reach more players through the Cephable community.",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "documentationUrl": "https://developers.cephable.com/",
+  "changelogUrl": "https://cephable.com/products/release-notes/",
+  "licensesUrl": "https://cephable.com/products/sdks/",
+  "dependencies": {
+ },
+ "keywords": [
+    "accessibility",
+    "controls",
+    "voice",
+    "gesture",
+    "a11y",
+    "marketplace",
+    "customization"
+  ],
+  "author": {
+    "name": "Cephable",
+    "email": "support@cephable.com",
+    "url": "https://www.cephable.com"
+  }
+}
+
