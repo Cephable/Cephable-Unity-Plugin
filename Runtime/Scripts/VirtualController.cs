@@ -151,7 +151,6 @@ public class VirtualController : MonoBehaviour
         {
             string responseText = www.downloadHandler.text;
             // Parse the response to extract the access token and refresh token
-            // ...
             var tokenResponse = UserDeviceToken.CreateFromJSON(responseText);
             // // Store the tokens locally
             PlayerPrefs.SetString("userDeviceToken", tokenResponse.token);
