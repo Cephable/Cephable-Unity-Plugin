@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using System.Collections;
 using System.Collections.Generic;
-namespace Cephable.Unity.Plugin
+namespace Cephable.Plugin
 {
     public class OAuth2Manager : MonoBehaviour
     {
