@@ -248,8 +248,7 @@ Players can update their configuration at any time in the Cephable app without r
 ## Support
 
 - Developer documentation: [developers.cephable.com](https://developers.cephable.com/)
-- Release notes: [cephable.com/products/release-notes](https://cephable.com/products/release-notes/)
-- Support: [support@cephable.com](mailto:support@cephable.com)
+- Support: [cephable.com/resources](https://cephable.com/resources)
 
 ---
 
