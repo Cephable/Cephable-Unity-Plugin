@@ -19,6 +19,7 @@ public class BasicMovement : MonoBehaviour
         // Jump when space is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Jumping!");
             Jump();
         }
 
@@ -51,6 +52,11 @@ public class BasicMovement : MonoBehaviour
     {
         Debug.Log($"Command received: {command}");
         // Handle command names like "jump", "fire", "crouch", etc.
+
+        if (command.ToLower() == "jump" || command.ToLower() == "hotkey_jump")
+        {
+            Jump();
+        }
     }
 
     void OnCustomAction(string deviceTypeId, string actionId, string content)

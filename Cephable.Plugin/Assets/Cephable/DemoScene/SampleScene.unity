@@ -743,8 +743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AUTH_ENDPOINT: https://services.cephable.com/signin
   TOKEN_ENDPOINT: https://services.cephable.com/signin/token
-  CLIENT_ID: YOUR_CLIENT_ID
-  CLIENT_SECRET: YOUR_CLIENT_SECRET
+  CLIENT_ID: '[YOUR CLIENT ID FROM CEPHABLE]'
+  CLIENT_SECRET: '[YOUR CLIENT SECRET FROM CEPHABLE]'
   controller: {fileID: 717330739}
 --- !u!114 &848354968
 MonoBehaviour:
