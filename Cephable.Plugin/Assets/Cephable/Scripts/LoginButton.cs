@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-namespace Cephable.Unity.Plugin
+namespace Cephable.Plugin
 {
     public class LoginButton : MonoBehaviour
     {

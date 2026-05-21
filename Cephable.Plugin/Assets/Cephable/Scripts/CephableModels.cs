@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Cephable.Unity.Plugin
+namespace Cephable.Plugin
 {
     [System.Serializable]
     public class UserDevice

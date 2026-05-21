@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using Microsoft.AspNetCore.SignalR.Client;
-namespace Cephable.Unity.Plugin
+namespace Cephable.Plugin
 {
     [Serializable] public class CommandReceivedEvent : UnityEvent<string> { }
     [Serializable] public class KeyStateChangedEvent : UnityEvent<string, bool> { }
