@@ -109,7 +109,7 @@ namespace Cephable.Plugin
             output("Getting access token...");
             this.authCode = authCode;
 
-            UnityWebRequest www = UnityWebRequest.Post($"{TOKEN_ENDPOINT}?grant_type=code&code={authCode}&client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}", string.Empty);
+            UnityWebRequest www = UnityWebRequest.PostWwwForm($"{TOKEN_ENDPOINT}?grant_type=code&code={authCode}&client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}", string.Empty);
             yield return www.SendWebRequest();
 
             if (www.result == UnityWebRequest.Result.Success)
@@ -135,7 +135,7 @@ namespace Cephable.Plugin
         {
             string refreshToken = PlayerPrefs.GetString("refreshToken");
 
-            UnityWebRequest www = UnityWebRequest.Post($"{TOKEN_ENDPOINT}?grant_type=refresh_token&client_secret={CLIENT_SECRET}&refresh_token={refreshToken}&client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}", string.Empty);
+            UnityWebRequest www = UnityWebRequest.PostWwwForm($"{TOKEN_ENDPOINT}?grant_type=refresh_token&client_secret={CLIENT_SECRET}&refresh_token={refreshToken}&client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}", string.Empty);
 
             yield return www.SendWebRequest();
 

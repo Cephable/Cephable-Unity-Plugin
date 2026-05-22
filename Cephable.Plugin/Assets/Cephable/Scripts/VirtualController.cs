@@ -298,7 +298,7 @@ namespace Cephable.Plugin
                 yield break;
             }
 
-            var www = UnityWebRequest.Post(
+            var www = UnityWebRequest.PostWwwForm(
                 $"{CephableApiBaseUrl}/api/Device/userDevices/new/{DeviceTypeId}?name={DefaultDeviceName}",
                 string.Empty);
             www.SetRequestHeader("Authorization", $"Bearer {accessToken}");
@@ -326,7 +326,7 @@ namespace Cephable.Plugin
                 yield break;
             }
 
-            var www = UnityWebRequest.Post(
+            var www = UnityWebRequest.PostWwwForm(
                 $"{CephableApiBaseUrl}/api/Device/userDevices/{userDeviceId}/tokens",
                 string.Empty);
             www.SetRequestHeader("Authorization", $"Bearer {accessToken}");
