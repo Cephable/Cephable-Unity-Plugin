@@ -107,3 +107,5 @@ InitTestScene*.unity*
 /.claude
 
 **/*.meta
+
+/Packages/**
