@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/Cephable/Cephable-Unity-Plugin/security/policy
+    about: Please report security issues privately — do not open a public issue. See SECURITY.md.
+  - name: Cephable developer documentation
+    url: https://developers.cephable.com/
+    about: API docs, OAuth setup, Device Type registration, and general developer guides.
+  - name: Cephable support
+    url: https://cephable.com/resources
+    about: General product support, account questions, and player-side help.
+  - name: Email support
+    url: mailto:support@cephable.com
+    about: Reach the Cephable team directly for anything that doesn't fit a public issue.
